@@ -1,4 +1,4 @@
 export default {
   home: '/',
-  useState: '/use-state',
+  useState: '/use-state'
 };

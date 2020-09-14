@@ -23,6 +23,4 @@ function Home() {
   );
 }
 
-export default withProvider({ Context, reducer, initialState: INITIAL_STATE })(
-  Home
-);
+export default withProvider({ Context, reducer, initialState: INITIAL_STATE })(Home);

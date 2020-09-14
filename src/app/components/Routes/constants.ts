@@ -15,7 +15,7 @@ export const ROUTES = [
     component: UseState,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
-    redirectTo: '',
+    redirectTo: ''
   },
   {
     exact: false,
@@ -23,6 +23,6 @@ export const ROUTES = [
     component: Home,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
-    redirectTo: '',
-  },
+    redirectTo: ''
+  }
 ];

@@ -1,8 +1,9 @@
 import React from 'react';
 
+import ScreenView from '~components/ScreenView';
+
 import SquareFunctional from './components/SquareFunctional';
 import SquareClassComponent from './components/SquareClassComponent';
-import ScreenView from '~components/ScreenView';
 
 function UseState() {
   return (

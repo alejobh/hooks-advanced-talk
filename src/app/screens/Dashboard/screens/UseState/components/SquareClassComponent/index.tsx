@@ -19,28 +19,28 @@ class SquareClassComponent extends Component<any, State> {
       square1: initial,
       square2: initial.current,
       square1Qty: 0,
-      square2Qty: 0,
+      square2Qty: 0
     };
   }
 
-  setSquare1 = (evt: React.MouseEvent) => {
+  handleSetSquare1 = (evt: React.MouseEvent) => {
     evt.persist();
-    this.setState((prev) => ({
+    this.setState(prev => ({
       square1Qty: prev.square1Qty + 1,
       square1: {
         previous: prev.square1.current,
-        current: { x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY },
-      },
+        current: { x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY }
+      }
     }));
   };
 
-  setSquare2 = (evt: React.MouseEvent) => {
+  handleSetSquare2 = (evt: React.MouseEvent) => {
     evt.persist();
     // Multiple calls
     this.setState({ square2: { x: 0, y: 0 } });
     this.setState({ square2: { x: 0, y: 0 } });
     this.setState({
-      square2: { x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY },
+      square2: { x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY }
     });
   };
 
@@ -59,19 +59,13 @@ class SquareClassComponent extends Component<any, State> {
       <div className="column full-width center">
         <h2 className="m-bottom-4">Class Component</h2>
         <div className="row">
-          <div
-            className="column middle center square yellow m-right-4"
-            onClick={this.setSquare1}
-          >
+          <div className="column middle center square yellow m-right-4" onClick={this.handleSetSquare1}>
             <p className="bold">Mouse position</p>
             <p>Previous: {printCoords(square1.previous)}</p>
             <p>Current: {printCoords(square1.current)}</p>
             <p>Llamados: {square1Qty}</p>
           </div>
-          <div
-            className="column middle center square yellow"
-            onClick={this.setSquare2}
-          >
+          <div className="column middle center square yellow" onClick={this.handleSetSquare2}>
             <p className="bold">Mouse position</p>
             <p>Position: {printCoords(square2)}</p>
             <p>Llamados: {square2Qty}</p>
