@@ -11,8 +11,8 @@ interface State {
   square2Qty: number;
 }
 
-class SquareClassComponent extends Component<any, State> {
-  constructor(props: any) {
+class SquareClassComponent extends Component<object, State> {
+  constructor(props: object) {
     super(props);
 
     this.state = {
@@ -44,7 +44,7 @@ class SquareClassComponent extends Component<any, State> {
     });
   };
 
-  componentDidUpdate(prevProps: any, prevState: State) {
+  componentDidUpdate(prevProps: object, prevState: State) {
     const { square2: prevSquare2, square2Qty } = prevState;
     const { square2 } = this.state;
     if (prevSquare2.x !== square2.x || prevSquare2.y !== square2.y) {
