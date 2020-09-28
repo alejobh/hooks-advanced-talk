@@ -1,0 +1,52 @@
+@import 'variables/colors';
+
+.container {
+  border: 1px solid $blue;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.release-date {
+  background-color: $blue;
+  border-radius: 4px;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  padding: 4px;
+}
+
+.score {
+  align-items: center;
+  color: $black;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px;
+
+  .star {
+    color: $blue;
+  }
+}
+
+.description {
+  color: $black;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.producer {
+  color: $blue;
+  font-size: 16px;
+
+  .producer-name {
+    color: $black;
+    font-size: inherit;
+    font-weight: 500;
+    text-decoration: initial;
+  }
+}
