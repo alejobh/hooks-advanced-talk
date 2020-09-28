@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { ReactQueryDevtools } from 'react-query-devtools';
 
 import '../scss/application.scss';
 
@@ -12,12 +11,9 @@ function App() {
   const [userState, userDispatch] = useReducer(userReducer, INITIAL_STATE);
 
   return (
-    <>
-      <Context.Provider value={{ state: userState, dispatch: userDispatch }}>
-        <Routes />
-      </Context.Provider>
-      <ReactQueryDevtools initialIsOpen />
-    </>
+    <Context.Provider value={{ state: userState, dispatch: userDispatch }}>
+      <Routes />
+    </Context.Provider>
   );
 }
 

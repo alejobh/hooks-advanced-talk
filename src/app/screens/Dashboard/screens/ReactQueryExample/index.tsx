@@ -1,51 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { ReactQueryDevtools } from 'react-query-devtools';
+import { ReactQueryCacheProvider, QueryCache } from 'react-query';
 
 import ScreenView from '~components/ScreenView';
-import { useRequest } from '~app/hooks/useRequest';
-import GhibliService from '~services/GhibliService';
-import Loading from '~components/Spinner/components/loading';
-import GhibliMovie from '~components/GhibliMovie';
 
-import styles from './styles.module.scss';
-import { DEFAULT_LIMIT, LIMIT_INCREMENTAL } from './constants';
+import Movies from './components/Movies';
+
+const queryCache = new QueryCache();
 
 function UseRequestExample() {
-  const [limit, setLimit] = useState(DEFAULT_LIMIT);
-
-  const [data, loading, , requestMore] = useRequest(
-    {
-      request: GhibliService.getMovies,
-      payload: limit
-    },
-    []
-  );
-
-  const handleGetMore = () => {
-    setLimit(prev => prev + LIMIT_INCREMENTAL);
-  };
-
-  const fetchedAllMovies = data?.length ? limit > data.length : false;
-
-  useEffect(() => {
-    requestMore(limit);
-  }, [limit, requestMore]);
-
   return (
-    <ScreenView title="React Query example" smallScreen={false}>
-      {loading && <Loading />}
-      {data && !loading && !!data?.length && (
-        <div className={`column middle center m-bottom-6 ${styles.container}`}>
-          {data.map(movie => (
-            <GhibliMovie key={movie.id} movie={movie} />
-          ))}
-        </div>
-      )}
-      {!fetchedAllMovies && (
-        <button type="button" className={styles.fetchButton} onClick={handleGetMore}>
-          Obtener más
-        </button>
-      )}
-    </ScreenView>
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <ScreenView title="React Query example" smallScreen={false}>
+        <Movies />
+      </ScreenView>
+      <ReactQueryDevtools initialIsOpen />
+    </ReactQueryCacheProvider>
   );
 }
 

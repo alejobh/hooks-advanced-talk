@@ -2,13 +2,12 @@ import GhibliService from '~services/GhibliService';
 
 import { useRequest } from './useRequest';
 
-export const useMoviesUseRequest = ({
-  limit,
-  withPostFetch
-}: {
+interface Args {
   limit: number;
   withPostFetch?: () => void;
-}) => {
+}
+
+export const useMoviesUseRequest = ({ limit, withPostFetch }: Args) => {
   const [data, loading, , fetchMore] = useRequest(
     {
       request: GhibliService.getMovies,
