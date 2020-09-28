@@ -5,6 +5,7 @@ import PATHS from './paths';
 
 const Home = lazy(() => import('~screens/Dashboard'));
 const UseState = lazy(() => import('~screens/Dashboard/screens/UseState'));
+const UseRef = lazy(() => import('~screens/Dashboard/screens/UseRef'));
 const UseLayoutEffect = lazy(() => import('~screens/Dashboard/screens/UseLayoutEffect'));
 const UseRequestExample = lazy(() => import('~screens/Dashboard/screens/UseRequestExample'));
 const ReactQueryExample = lazy(() => import('~screens/Dashboard/screens/ReactQueryExample'));
@@ -41,6 +42,14 @@ export const ROUTES = [
     exact: true,
     path: PATHS.useState,
     component: UseState,
+    title: i18next.t('Routes:homeTitle'),
+    description: i18next.t('Routes:homeDescription'),
+    redirectTo: ''
+  },
+  {
+    exact: true,
+    path: PATHS.useRef,
+    component: UseRef,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
     redirectTo: ''
