@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import ScreenView from '~components/ScreenView';
-import { useRequest } from '~app/hooks/useRequest';
-import GhibliService from '~services/GhibliService';
 import Loading from '~components/Spinner/components/loading';
 import GhibliMovie from '~components/GhibliMovie';
+import { useMoviesUseRequest } from '~app/hooks/useMoviesUseRequest';
+import { scrollToBottom } from '~utils/dom';
 
 import styles from './styles.module.scss';
 import { DEFAULT_LIMIT, LIMIT_INCREMENTAL } from './constants';
@@ -12,23 +12,27 @@ import { DEFAULT_LIMIT, LIMIT_INCREMENTAL } from './constants';
 function UseRequestExample() {
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
 
-  const [data, loading, , requestMore] = useRequest(
-    {
-      request: GhibliService.getMovies,
-      payload: limit
-    },
-    []
-  );
-
   const handleGetMore = () => {
     setLimit(prev => prev + LIMIT_INCREMENTAL);
   };
 
-  const fetchedAllMovies = data?.length ? limit > data.length : false;
+  const limitHasChanged = limit !== DEFAULT_LIMIT;
+
+  // Remove useCallback to see infinite loop
+  const scrollWhenFetch = useCallback(() => {
+    scrollToBottom();
+  }, []);
+
+  const { data, loading, fetchMore, thereIsMoreData } = useMoviesUseRequest({
+    limit,
+    withPostFetch: scrollWhenFetch
+  });
 
   useEffect(() => {
-    requestMore(limit);
-  }, [limit, requestMore]);
+    if (limitHasChanged) {
+      fetchMore(limit);
+    }
+  }, [fetchMore, limit, limitHasChanged]);
 
   return (
     <ScreenView title="useRequest example" smallScreen={false}>
@@ -40,7 +44,7 @@ function UseRequestExample() {
           ))}
         </div>
       )}
-      {!fetchedAllMovies && (
+      {thereIsMoreData && (
         <button type="button" className={styles.fetchButton} onClick={handleGetMore}>
           Obtener más
         </button>
