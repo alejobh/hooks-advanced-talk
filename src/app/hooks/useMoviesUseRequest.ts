@@ -1,20 +1,24 @@
-import { useQuery } from 'react-query';
+import GhibliService from '~services/GhibliService';
 
-import api from '../config/api';
-import { IPokemon } from '../interfaces/pokemons';
+import { useRequest } from './useRequest';
 
-interface Props {
-  searchQuery?: string;
-}
-
-function usePokemons({ searchQuery = '' }: Props) {
-  return useQuery(
-    ['pokemon', searchQuery],
-    () => api.get<IPokemon>(`/pokemon/${searchQuery}`).then(res => res.data),
+export const useMoviesUseRequest = ({
+  limit,
+  withPostFetch
+}: {
+  limit: number;
+  withPostFetch?: () => void;
+}) => {
+  const [data, loading, , fetchMore] = useRequest(
     {
-      enabled: searchQuery
-    }
+      request: GhibliService.getMovies,
+      payload: limit,
+      withPostFetch
+    },
+    [withPostFetch]
   );
-}
 
-export default usePokemons;
+  const thereIsMoreData = data?.length ? data.length >= limit : true;
+
+  return { data, loading, fetchMore, thereIsMoreData };
+};
