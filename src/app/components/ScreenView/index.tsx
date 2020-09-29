@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import paths from '~components/Routes/paths';
-import { useDispatch, useSelector } from '~contexts/GlobalContext';
-import { actionCreators } from '~contexts/GlobalContext/reducer';
 
 import styles from './styles.module.scss';
+import UnderstoodButton from './components/UnderstoodButton';
 
 interface Props {
   title: string;
@@ -15,32 +14,16 @@ interface Props {
   route: string;
 }
 
-function ScreenView({ children, title, route, smallScreen = true }: Props) {
-  const dispatch = useDispatch();
-  const understoods: string[] = useSelector(state => state.understood);
-
-  const isUnderstood = understoods.find(example => example === route);
-
-  const handleSetUnderstood = () => {
-    dispatch(actionCreators.setExampleUnderstood(route));
-  };
-
+function ScreenView({ children, title, smallScreen = true }: Props) {
   return (
     <div
       className={`full-width column middle center ${styles.container} ${
         smallScreen ? styles.smallScren : ''
       }`}
     >
-      <h1 className={clsx('m-bottom-8', { [styles.understood]: isUnderstood })}>{title}</h1>
+      <h1 className={clsx('m-bottom-8')}>{title}</h1>
       {children}
-      {!isUnderstood && (
-        <div className="row middle m-top-8">
-          <h2 className="m-right-2">Te quedó claro?</h2>
-          <button type="button" onClick={handleSetUnderstood} className="button">
-            Marcálo como aprendido
-          </button>
-        </div>
-      )}
+      <UnderstoodButton />
       <NavLink className="m-top-10" to={paths.home.route}>
         Back
       </NavLink>

@@ -10,7 +10,7 @@ interface Props {
 }
 
 function ExampleLink({ path }: Props) {
-  const understoods: string[] = useSelector(state => state.understood);
+  const understoods = useSelector(state => state.understood);
   const isUnderstood = understoods.find(understood => understood === path.route);
   return (
     <NavLink className="m-bottom-4 row middle" to={path.route}>

@@ -61,7 +61,7 @@ export const actionCreators = {
   resetUser: (): ResetUser => ({ type: ActionTypes.RESET_USER }),
   login: (credentials: Credentials): Login => ({ type: ActionTypes.LOGIN, payload: credentials }),
   logout: (): Logout => ({ type: ActionTypes.LOGOUT }),
-  setExampleUnderstood: (example: string): SetExampleUnderstood => ({
+  toggleUnderstood: (example: string): SetExampleUnderstood => ({
     type: ActionTypes.SET_EXAMPLE_UNDERSTOOD,
     payload: example
   })
@@ -76,7 +76,12 @@ export const reducer = (state: GlobalState, action: Action): GlobalState => {
       return { ...state, user: null };
     }
     case ActionTypes.SET_EXAMPLE_UNDERSTOOD: {
-      return { ...state, understood: [...state.understood, action.payload] };
+      return {
+        ...state,
+        understood: state.understood.find(example => example === action.payload)
+          ? state.understood.filter(example => example !== action.payload)
+          : [...state.understood, action.payload]
+      };
     }
     default: {
       return state;

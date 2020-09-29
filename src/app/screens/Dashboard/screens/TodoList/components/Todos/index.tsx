@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { useSelector } from '~contexts/TodosContext';
-import { TodoI } from '~utils/types';
 
 import Todo from './components/Todo';
 import styles from './styles.module.scss';
 
 function Todos() {
-  const todos: TodoI[] = useSelector(state => state.todos);
+  const todos = useSelector(state => state.todos);
 
   return (
     <div className={`column ${styles.container}`}>
