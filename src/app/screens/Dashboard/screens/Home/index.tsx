@@ -26,6 +26,9 @@ function Home() {
         <NavLink className="m-bottom-4" to={paths.useRequest}>
           useRequest
         </NavLink>
+        <NavLink className="m-bottom-4" to={paths.reactQuery}>
+          React Query
+        </NavLink>
       </header>
     </div>
   );
