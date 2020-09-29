@@ -14,6 +14,8 @@ function Home() {
         <p className={`${styles.text} m-bottom-6`}>React advanced hooks</p>
         <ExampleLink path={paths.useState} />
         <ExampleLink path={paths.useLayoutEffect} />
+        <ExampleLink path={paths.useRef} />
+        <ExampleLink path={paths.useWindowSize} />
         <ExampleLink path={paths.todo} />
         <ExampleLink path={paths.useRequest} />
         <ExampleLink path={paths.reactQuery} />
