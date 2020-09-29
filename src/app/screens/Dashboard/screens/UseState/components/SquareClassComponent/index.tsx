@@ -63,12 +63,12 @@ class SquareClassComponent extends Component<object, State> {
             <p className="bold">Mouse position</p>
             <p>Previous: {printCoords(square1.previous)}</p>
             <p>Current: {printCoords(square1.current)}</p>
-            <p>Llamados: {square1Qty}</p>
+            <p>Calls: {square1Qty}</p>
           </div>
           <div className="column middle center square yellow" onClick={this.handleSetSquare2}>
             <p className="bold">Mouse position</p>
             <p>Position: {printCoords(square2)}</p>
-            <p>Llamados: {square2Qty}</p>
+            <p>Calls: {square2Qty}</p>
           </div>
         </div>
       </div>

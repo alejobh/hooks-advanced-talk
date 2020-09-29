@@ -4,12 +4,12 @@ import { SquareCoords } from '~utils/types';
 
 import { printCoords, initial } from '../../utils';
 
-function SquareFunctional() {
+function Square() {
   const [square1, setSquare1] = useState<{
     previous: SquareCoords;
     current: SquareCoords;
   }>(initial);
-  const [square2, setSquare2] = useState<SquareCoords>(initial.current);
+  const [square2, setSquare2] = useState(initial.current);
   const [square1Qty, setSquare1Qty] = useState(0);
   const [square2Qty, setSquare2Qty] = useState(0);
 
@@ -26,7 +26,7 @@ function SquareFunctional() {
 
   const handleSetCoords2 = (evt: React.MouseEvent) => {
     evt.persist();
-    // Multiple call
+    // Multiple calls
     setSquare2({ x: 0, y: 0 });
     setSquare2({ x: 0, y: 0 });
     setSquare2({ x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY });
@@ -46,16 +46,16 @@ function SquareFunctional() {
           <p className="bold">Mouse position</p>
           <p>Previous: {printCoords(square1.previous)}</p>
           <p>Current: {printCoords(square1.current)}</p>
-          <p>Llamados: {square1Qty}</p>
+          <p>Calls: {square1Qty}</p>
         </div>
         <div className="column middle center square" onClick={handleSetCoords2}>
           <p className="bold">Mouse position</p>
           <p>Position: {printCoords(square2)}</p>
-          <p>Llamados: {square2Qty}</p>
+          <p>Calls: {square2Qty}</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default SquareFunctional;
+export default Square;

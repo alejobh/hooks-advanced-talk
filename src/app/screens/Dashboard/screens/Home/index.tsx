@@ -17,7 +17,7 @@ function Home() {
       <header className={styles.appHeader}>
         <img src={logo} className={styles.appLogo} alt="logo" />
         <p className={`${styles.text} m-bottom-6`}>React advanced hooks</p>
-        <NavLink to={paths.useState}>useEffect</NavLink>
+        <NavLink to={paths.useState}>usestate</NavLink>
       </header>
     </div>
   );
