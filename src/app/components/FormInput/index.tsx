@@ -1,69 +1,82 @@
 import React from 'react';
+import clsx from 'clsx';
+import i18next from 'i18next';
+
+import { ReactComponent as ValidIcon } from '~assets/ic_valid.svg';
+import { ReactComponent as InvalidIcon } from '~assets/ic_invalid.svg';
 
 import styles from './styles.module.scss';
 
 interface Props {
-  className?: string;
+  label: string;
   disabled?: boolean;
   error?: string;
-  errorClassName?: string;
-  inputClassName?: string;
-  isTextarea?: boolean;
-  inputType: string;
-  label?: string | object;
-  labelClassName?: string;
-  name: string;
-  onBlur?: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onChange: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onFocus?: (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   placeholder?: string;
-  readOnly?: boolean;
-  touched?: boolean;
-  submitCount?: number;
+  confirmable?: boolean;
+  name: string;
+  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+  type?: string;
+  // Typed from react-hook-form
+  inputRef: (instance: HTMLInputElement | null) => void;
+  className?: string;
 }
 
 function FormInput({
-  className = '',
-  disabled = false,
-  error = '',
-  errorClassName = '',
-  inputClassName = '',
-  isTextarea = false,
-  inputType,
-  label = '',
-  labelClassName = '',
   name,
-  onBlur,
+  label,
+  disabled,
+  error,
   onChange,
-  onFocus,
-  placeholder = '',
-  readOnly = false,
-  touched,
-  submitCount
+  confirmable = true,
+  placeholder,
+  type = 'text',
+  inputRef,
+  className = ''
 }: Props) {
-  const InputComponent = isTextarea ? 'textarea' : 'input';
-  const showError =
-    (touched === undefined || touched) && error && (submitCount === undefined || submitCount > 0);
   return (
-    <div className={`column start ${className}`}>
-      {label && (
-        <label htmlFor={name} className={`${labelClassName} m-bottom-1`}>
-          {label}
-        </label>
-      )}
-      <InputComponent
-        className={`${inputClassName} ${styles.input} ${showError ? styles.error : ''}`}
-        name={name}
-        id={name}
-        type={inputType}
-        placeholder={placeholder}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        disabled={disabled}
-        readOnly={readOnly}
-      />
-      <span className={`${errorClassName} ${styles.errorText} ${showError ? styles.visible : ''}`}>
+    <div className={clsx('column', styles.inputWrapper, className)}>
+      <label htmlFor={name} className={`${styles.inputLabel} m-bottom-1`}>
+        {label}
+      </label>
+      <div className={styles.inputContent}>
+        <input
+          id={name}
+          data-testid={`${name}-input`}
+          name={name}
+          className={clsx(
+            styles.inputBase,
+            'm-bottom-1',
+            { [styles.inputError]: !!error },
+            { [styles.confirmed]: confirmable && !error }
+          )}
+          placeholder={placeholder}
+          onChange={onChange}
+          disabled={disabled}
+          aria-errormessage={`${name}-error`}
+          aria-invalid={!!error}
+          type={type}
+          ref={inputRef}
+        />
+        {confirmable && !error && (
+          <ValidIcon
+            className={styles.inputIcon}
+            role="status"
+            aria-label={i18next.t('Input:valid') as string}
+          />
+        )}
+        {error && (
+          <InvalidIcon
+            className={styles.inputIcon}
+            role="status"
+            aria-label={i18next.t('Input:invalid') as string}
+          />
+        )}
+      </div>
+      <span
+        id={`${name}-error`}
+        role="alert"
+        className={clsx(styles.errorMessage, { [styles.show]: !!error })}
+      >
         {error}
       </span>
     </div>

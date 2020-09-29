@@ -29,6 +29,9 @@ function Home() {
         <NavLink className="m-bottom-4" to={paths.reactQuery}>
           React Query
         </NavLink>
+        <NavLink className="m-bottom-4" to={paths.todo}>
+          Todo List
+        </NavLink>
       </header>
     </div>
   );
