@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
+import clsx from 'clsx';
 
 import ScreenView from '~components/ScreenView';
 
@@ -28,11 +29,11 @@ function UseLayoutEffect() {
       <button className="button m-bottom-2" type="button" onClick={() => setValue1(0)}>
         Random Value useLayoutEffect
       </button>
-      <p className={`m-bottom-10 ${value1 === 0 ? styles.big : ''}`}>{value1}</p>
+      <p className={clsx('m-bottom-10', { [styles.big]: value1 === 0 })}>{value1}</p>
       <button className="button m-bottom-2" type="button" onClick={() => setValue2(0)}>
         Random Value useEffect
       </button>
-      <p className={`m-bottom-4 ${value2 === 0 ? styles.big : ''}`}>{value2}</p>
+      <p className={clsx('m-bottom-4', { [styles.big]: value2 === 0 })}>{value2}</p>
     </ScreenView>
   );
 }
