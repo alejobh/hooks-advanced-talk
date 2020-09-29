@@ -12,8 +12,7 @@ function MoviesCache({ limit }: { limit: number }) {
   return (
     <div className="column m-top-10">
       <h2>Cache</h2>
-      {/* eslint-disable-next-line react/no-multi-comp */}
-      {!!movies?.length && movies?.map(movie => <GhibliMovie key={movie.id} movie={movie} />)}
+      <>{!!movies?.length && movies.map(movie => <GhibliMovie key={movie.id} movie={movie} />)}</>
     </div>
   );
 }
