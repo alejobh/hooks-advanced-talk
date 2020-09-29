@@ -10,3 +10,9 @@ export interface GhibliMovieI {
   release_date: string;
   rt_score: string;
 }
+
+export interface TodoI {
+  id: number;
+  isDone: boolean;
+  text: string;
+}
