@@ -1,20 +1,21 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 
 import '../scss/application.scss';
 
-import { reducer as userReducer, INITIAL_STATE } from '~contexts/UserContext/reducer';
-import { Context } from '~contexts/UserContext';
+import { reducer, INITIAL_STATE, Action, GlobalState } from '~contexts/GlobalContext/reducer';
+import { Context } from '~app/contexts/GlobalContext';
+import withProvider from '~components/ProviderWrapper';
 
 import Routes from './components/Routes';
+import { EXAMPLES_LOCAL_STORAGE_KEY } from './contexts/GlobalContext/constants';
 
 function App() {
-  const [userState, userDispatch] = useReducer(userReducer, INITIAL_STATE);
-
-  return (
-    <Context.Provider value={{ state: userState, dispatch: userDispatch }}>
-      <Routes />
-    </Context.Provider>
-  );
+  return <Routes />;
 }
 
-export default App;
+export default withProvider<{}, GlobalState, Action>({
+  Context,
+  reducer,
+  initialState: INITIAL_STATE,
+  localStorageKey: EXAMPLES_LOCAL_STORAGE_KEY
+})(App);

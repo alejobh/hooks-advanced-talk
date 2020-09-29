@@ -9,7 +9,7 @@ import Home from './screens/Home';
 function Dashboard() {
   return (
     <Switch>
-      <RouteItem exact path={PATHS.home} component={Home} />
+      <RouteItem exact path={PATHS.home.route} component={Home} />
     </Switch>
   );
 }

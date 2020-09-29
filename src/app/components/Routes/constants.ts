@@ -15,7 +15,7 @@ const TodoList = lazy(() => import('~screens/Dashboard/screens/TodoList'));
 export const ROUTES = [
   {
     exact: true,
-    path: PATHS.todo,
+    path: PATHS.todo.route,
     component: TodoList,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
@@ -23,7 +23,7 @@ export const ROUTES = [
   },
   {
     exact: true,
-    path: PATHS.reactQuery,
+    path: PATHS.reactQuery.route,
     component: ReactQueryExample,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
@@ -31,7 +31,7 @@ export const ROUTES = [
   },
   {
     exact: true,
-    path: PATHS.useRequest,
+    path: PATHS.useRequest.route,
     component: UseRequestExample,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
@@ -39,7 +39,7 @@ export const ROUTES = [
   },
   {
     exact: true,
-    path: PATHS.useLayoutEffect,
+    path: PATHS.useLayoutEffect.route,
     component: UseLayoutEffect,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
@@ -47,7 +47,7 @@ export const ROUTES = [
   },
   {
     exact: true,
-    path: PATHS.useState,
+    path: PATHS.useState.route,
     component: UseState,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
@@ -55,7 +55,7 @@ export const ROUTES = [
   },
   {
     exact: false,
-    path: PATHS.home,
+    path: PATHS.home.route,
     component: Home,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),

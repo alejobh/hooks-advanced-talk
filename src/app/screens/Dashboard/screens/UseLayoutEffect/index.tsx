@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 
 import ScreenView from '~components/ScreenView';
+import paths from '~components/Routes/paths';
 
 import styles from './styles.module.scss';
 
@@ -24,7 +25,7 @@ function UseLayoutEffect() {
   }, [value2]);
 
   return (
-    <ScreenView title="useLayoutEffect example">
+    <ScreenView title="useLayoutEffect example" route={paths.useLayoutEffect.route}>
       <button className="button" type="button" onClick={() => setValue1(0)}>
         Random Value useLayoutEffect
       </button>

@@ -5,13 +5,18 @@ import withProvider from '~components/ProviderWrapper';
 import { TodosState, Action, reducer, INITIAL_STATE } from '~contexts/TodosContext/reducer';
 import { Context } from '~contexts/TodosContext';
 import { TODOS_LOCAL_STORAGE_KEY } from '~contexts/TodosContext/constants';
+import paths from '~components/Routes/paths';
 
 import NewTodo from './components/NewTodo';
 import Todos from './components/Todos';
 
 function TodoList() {
   return (
-    <ScreenView title="Todo List with Context and React Hook Form" smallScreen={false}>
+    <ScreenView
+      title="Todo List with Context and React Hook Form"
+      route={paths.todo.route}
+      smallScreen={false}
+    >
       <NewTodo />
       <Todos />
     </ScreenView>
