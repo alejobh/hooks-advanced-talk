@@ -4,7 +4,7 @@ export default {
   useRef: { route: '/use-ref', name: 'useRef' },
   useLayoutEffect: { route: '/use-layout-effect', name: 'useLayoutEffect' },
   useWindowSize: { route: '/use-window-size', name: 'Custom Hook: useWindowSize' },
+  todo: { route: '/to-do', name: 'Context & Persist: Todo List' },
   useRequest: { route: '/use-request', name: 'useRequest' },
-  reactQuery: { route: '/react-query', name: 'React Query' },
-  todo: { route: '/to-do', name: 'Todo List' }
+  reactQuery: { route: '/react-query', name: 'React Query' }
 };
