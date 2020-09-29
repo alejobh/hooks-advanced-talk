@@ -11,7 +11,6 @@ interface Props {
   title: string;
   children: ReactNode;
   smallScreen?: boolean;
-  route: string;
 }
 
 function ScreenView({ children, title, smallScreen = true }: Props) {

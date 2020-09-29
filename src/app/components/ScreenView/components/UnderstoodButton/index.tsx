@@ -17,9 +17,8 @@ function UnderstoodButton() {
 
   return (
     <div className="row middle m-top-8">
-      {/* <h2 className="m-right-2">{isUnderstood }Te quedó claro?</h2> */}
       <button type="button" onClick={handleSetUnderstood} className="button">
-        {isUnderstood ? 'Marcar como no aprendido' : 'Marcar como aprendido'}
+        {isUnderstood ? 'Mark as unread' : 'Mark as read'}
       </button>
     </div>
   );

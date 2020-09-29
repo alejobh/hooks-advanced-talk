@@ -15,7 +15,7 @@ function ExampleLink({ path }: Props) {
   return (
     <NavLink className="m-bottom-4 row middle" to={path.route}>
       {path.name}
-      {isUnderstood && <span className={styles.understood}>[Entendido]</span>}
+      {isUnderstood && <span className={styles.understood}>[Read]</span>}
     </NavLink>
   );
 }
