@@ -8,10 +8,16 @@ import styles from './styles.module.scss';
 interface Props {
   title: string;
   children: ReactNode;
+  smallScreen?: boolean;
 }
-function ScreenView({ children, title }: Props) {
+
+function ScreenView({ children, title, smallScreen = true }: Props) {
   return (
-    <div className={`full-width column middle center ${styles.container}`}>
+    <div
+      className={`full-width column middle center ${styles.container} ${
+        smallScreen ? styles.smallScren : ''
+      }`}
+    >
       <h1 className="m-bottom-8">{title}</h1>
       {children}
       <NavLink className="m-top-10" to={paths.home}>

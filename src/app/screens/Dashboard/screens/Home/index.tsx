@@ -23,6 +23,9 @@ function Home() {
         <NavLink className="m-bottom-4" to={paths.useLayoutEffect}>
           useLayoutEffect
         </NavLink>
+        <NavLink className="m-bottom-4" to={paths.useRequest}>
+          useRequest
+        </NavLink>
       </header>
     </div>
   );

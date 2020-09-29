@@ -1,0 +1,13 @@
+@import 'variables/colors';
+
+.container {
+  max-width: 800px;
+}
+
+.fetch-button {
+  color: $white;
+  background-color: $blue;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 8px;
+}
