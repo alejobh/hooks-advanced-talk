@@ -17,9 +17,9 @@ interface Props {
 function ScreenView({ children, title, smallScreen = true }: Props) {
   return (
     <div
-      className={`full-width column middle center ${styles.container} ${
-        smallScreen ? styles.smallScren : ''
-      }`}
+      className={clsx('full-width column middle center', styles.container, {
+        [styles.smallScren]: smallScreen
+      })}
     >
       <h1 className={clsx('m-bottom-8')}>{title}</h1>
       {children}
