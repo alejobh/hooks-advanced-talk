@@ -2,6 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const TIMER_INTERVAL = 1000;
 
+const clear = (interval?: NodeJS.Timeout) => {
+  if (interval) {
+    clearInterval(interval);
+  }
+};
+
 function MutableValue() {
   const [timer, setTimer] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout>();
@@ -12,12 +18,13 @@ function MutableValue() {
     }, TIMER_INTERVAL);
 
     return () => {
-      // clear interval
-      clearInterval(intervalRef?.current!);
+      clear(intervalRef.current);
     };
   }, []);
 
-  const handleStop = () => intervalRef.current && clearInterval(intervalRef.current);
+  const handleStop = () => {
+    clear(intervalRef.current);
+  };
 
   return (
     <>
