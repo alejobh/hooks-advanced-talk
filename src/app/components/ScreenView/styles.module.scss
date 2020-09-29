@@ -1,7 +1,13 @@
+@import 'variables/colors';
+
 .small-screen {
   height: 100vh;
 }
 
 .container {
   padding: 40px;
+}
+
+.understood {
+  color: $green;
 }
