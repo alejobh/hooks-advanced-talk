@@ -6,7 +6,9 @@
 
 @import 'components';
 
-// TODO: Edit this global styles
+@import 'fonts';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
 
 body {
   margin: 0;
@@ -18,4 +20,8 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+* {
+  font-family: Nunito, sans-serif;
 }

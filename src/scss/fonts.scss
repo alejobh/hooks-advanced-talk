@@ -1,0 +1,26 @@
+.bold {
+  font-weight: 600;
+}
+
+h1 {
+  color: $black;
+  font-size: 24px;
+}
+
+h2 {
+  color: $blue;
+  font-size: 20px;
+}
+
+p {
+  color: $black;
+}
+
+a {
+  color: $blue;
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
