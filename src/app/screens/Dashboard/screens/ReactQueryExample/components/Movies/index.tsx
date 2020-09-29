@@ -13,20 +13,18 @@ function Movies() {
   const [limit, setLimit] = useState(DEFAULT_LIMIT);
   const { data, isError, isLoading } = useMoviesReactQuery({ limit });
 
-  const movies = data as GhibliMovieI[];
-
   const handleGetMore = () => {
     setLimit(prev => prev + LIMIT_INCREMENTAL);
   };
 
-  const thereIsMoreData = movies?.length ? movies.length >= limit : true;
+  const thereIsMoreData = data?.length ? data.length >= limit : true;
 
   return (
     <div className={`column center ${styles.container}`}>
       {isLoading && <Loading />}
-      {data && !isLoading && !isError && !!movies?.length && (
+      {data && !isLoading && !isError && !!data?.length && (
         <div className="column middle center m-bottom-6">
-          {movies.map((movie: GhibliMovieI) => (
+          {data.map((movie: GhibliMovieI) => (
             <GhibliMovie key={movie.id} movie={movie} />
           ))}
           {thereIsMoreData && (
