@@ -1,11 +1,14 @@
 import { TodoI } from '~utils/types';
+import LocalStorageService from '~services/LocalStorageService';
+
+import { TODOS_LOCAL_STORAGE_KEY } from './constants';
 
 export interface TodosState {
   todos: TodoI[];
 }
 
 export const INITIAL_STATE = {
-  todos: []
+  todos: LocalStorageService.getValue(TODOS_LOCAL_STORAGE_KEY)?.todos || []
 };
 
 enum ActionTypes {
