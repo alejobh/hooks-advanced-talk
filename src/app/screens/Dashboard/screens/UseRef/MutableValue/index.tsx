@@ -10,6 +10,7 @@ const clear = (interval?: NodeJS.Timeout) => {
 
 function MutableValue() {
   const [timer, setTimer] = useState(0);
+  const [stopped, setStopped] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
@@ -24,15 +25,18 @@ function MutableValue() {
 
   const handleStop = () => {
     clear(intervalRef.current);
+    setStopped(true);
   };
 
   return (
     <>
       <h2 className="m-bottom-2">Mutable Value Container</h2>
       <p className="m-bottom-2">Timer: {timer}</p>
-      <button type="button" className="button" onClick={handleStop}>
-        Stop
-      </button>
+      {!stopped && (
+        <button type="button" className="button" onClick={handleStop}>
+          Stop
+        </button>
+      )}
     </>
   );
 }
