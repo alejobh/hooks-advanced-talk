@@ -25,11 +25,11 @@ function UseLayoutEffect() {
 
   return (
     <ScreenView title="useLayoutEffect example">
-      <button type="button" onClick={() => setValue1(0)}>
+      <button className="button" type="button" onClick={() => setValue1(0)}>
         Random Value useLayoutEffect
       </button>
       <p className={`m-bottom-10 ${value1 === 0 ? styles.big : ''}`}>{value1}</p>
-      <button type="button" onClick={() => setValue2(0)}>
+      <button className="button" type="button" onClick={() => setValue2(0)}>
         Random Value useEffect
       </button>
       <p className={`m-bottom-4 ${value2 === 0 ? styles.big : ''}`}>{value2}</p>

@@ -12,7 +12,8 @@
       "~schema/*": ["schema/*"],
       "~app/*": ["app/*"],
       "~hooks/*": ["app/hooks/*"],
-      "~contexts/*": ["app/contexts/*"]
+      "~contexts/*": ["app/contexts/*"],
+      "~assets/*": ["app/assets/*"]
     }
   }
 }

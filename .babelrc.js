@@ -14,7 +14,8 @@ module.exports = {
           "~utils": "./src/utils",
           "~app": "./src/app",
           "~hooks": "./src/app/hooks",
-          "~contexts": "./src/app/contexts"
+          "~contexts": "./src/app/contexts",
+          "~assets": "./src/app/assets"
         }
       }
     ]

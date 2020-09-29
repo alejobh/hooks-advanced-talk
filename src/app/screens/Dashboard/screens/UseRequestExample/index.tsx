@@ -46,7 +46,7 @@ function UseRequestExample() {
         </div>
       )}
       {thereIsMoreData && (
-        <button type="button" className={styles.fetchButton} onClick={handleGetMore}>
+        <button type="button" className="button" onClick={handleGetMore}>
           Obtener más
         </button>
       )}
