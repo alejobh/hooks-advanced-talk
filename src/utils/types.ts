@@ -11,7 +11,7 @@ export interface GhibliMovieI {
   rt_score: string;
 }
 
-export interface TodoI {
+export interface Todo {
   id: number;
   isDone: boolean;
   text: string;

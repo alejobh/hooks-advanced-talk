@@ -2,10 +2,10 @@ import React from 'react';
 
 import ScreenView from '~components/ScreenView';
 import withProvider from '~components/ProviderWrapper';
-import { TodosState, Action, reducer, INITIAL_STATE } from '~contexts/TodosContext/reducer';
-import { Context } from '~contexts/TodosContext';
-import { TODOS_LOCAL_STORAGE_KEY } from '~contexts/TodosContext/constants';
 
+import { TodosState, Action, reducer, INITIAL_STATE } from './context/reducer';
+import { Context } from './context';
+import { TODOS_LOCAL_STORAGE_KEY } from './context/constants';
 import NewTodo from './components/NewTodo';
 import Todos from './components/Todos';
 

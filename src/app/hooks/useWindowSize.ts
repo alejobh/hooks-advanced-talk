@@ -1,6 +1,13 @@
 import { useState, useEffect, useDebugValue } from 'react';
 
-import { SCREEN_SIZES } from '~constants/sizes';
+const SCREEN_SIZES = [
+  { name: 'xxs', width: 320 },
+  { name: 'xs', width: 375 },
+  { name: 'sm', width: 550 },
+  { name: 'md', width: 768 },
+  { name: 'lg', width: 1024 }
+] as const;
+// By using as const we get a union of literal types returned by getSize
 
 const getSize = (size: number) => {
   const sizes = Object.values(SCREEN_SIZES);

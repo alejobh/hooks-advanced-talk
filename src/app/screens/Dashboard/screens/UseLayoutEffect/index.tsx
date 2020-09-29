@@ -5,8 +5,8 @@ import ScreenView from '~components/ScreenView';
 
 import styles from './styles.module.scss';
 
-// eslint-disable-next-line no-magic-numbers
-const generateRandom = () => Math.floor(Math.random() * 100) + 1;
+const HUNDRED = 100;
+const generateRandom = () => Math.floor(Math.random() * HUNDRED) + 1;
 
 function UseLayoutEffect() {
   const [value1, setValue1] = useState(0);
@@ -16,7 +16,7 @@ function UseLayoutEffect() {
     if (value1 === 0) {
       setValue1(generateRandom());
     }
-  }, [value1, value2]);
+  }, [value1]);
 
   useEffect(() => {
     if (value2 === 0) {

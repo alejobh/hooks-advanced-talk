@@ -28,7 +28,7 @@ function UseRequestExample() {
     withPostFetch: scrollWhenFetch
   });
 
-  // Comment this useEffect, and put limit on dependencies arraay on useMoviesUseRequest (useRequest) to see magic
+  // Comment this useEffect, and put limit on dependencies array on useMoviesUseRequest (useRequest) to see magic
   useEffect(() => {
     if (limitHasChanged) {
       fetchMore(limit);

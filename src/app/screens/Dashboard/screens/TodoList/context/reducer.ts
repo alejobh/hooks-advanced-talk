@@ -1,10 +1,10 @@
-import { TodoI } from '~utils/types';
+import { Todo } from '~utils/types';
 import LocalStorageService from '~services/LocalStorageService';
 
 import { TODOS_LOCAL_STORAGE_KEY } from './constants';
 
 export interface TodosState {
-  todos: TodoI[];
+  todos: Todo[];
 }
 
 export const INITIAL_STATE = {
@@ -19,7 +19,7 @@ enum ActionTypes {
 
 interface AddTodo {
   type: ActionTypes.ADD_TODO;
-  payload: TodoI;
+  payload: Todo;
 }
 
 interface DeleteTodo {
@@ -35,7 +35,7 @@ interface ToggleTodoStatus {
 export type Action = AddTodo | DeleteTodo | ToggleTodoStatus;
 
 export const actionCreators = {
-  addTodo: (todo: TodoI): AddTodo => ({ type: ActionTypes.ADD_TODO, payload: todo }),
+  addTodo: (todo: Todo): AddTodo => ({ type: ActionTypes.ADD_TODO, payload: todo }),
   deleteTodo: (id: number): DeleteTodo => ({ type: ActionTypes.DELETE_TODO, payload: id }),
   toggleTodoStatus: (id: number): ToggleTodoStatus => ({ type: ActionTypes.TOGGLE_TODO_STATUS, payload: id })
 };

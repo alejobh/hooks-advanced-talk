@@ -1,18 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import { TodoI } from '~utils/types';
+import { Todo } from '~utils/types';
 import CustomCheckbox from '~components/Checkbox';
-import { useDispatch } from '~contexts/TodosContext';
-import { actionCreators } from '~contexts/TodosContext/reducer';
+import { useDispatch } from '~screens/Dashboard/screens/TodoList/context';
+import { actionCreators } from '~screens/Dashboard/screens/TodoList/context/reducer';
 
 import styles from './styles.module.scss';
 
-interface Props {
-  todo: TodoI;
-}
-
-function Todo({ todo }: Props) {
+function TodoItem({ todo }: { todo: Todo }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -45,4 +41,4 @@ function Todo({ todo }: Props) {
   );
 }
 
-export default Todo;
+export default TodoItem;

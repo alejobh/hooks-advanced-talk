@@ -2,9 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import FormInput from '~components/FormInput';
-import { useDispatch } from '~contexts/TodosContext';
-import { actionCreators } from '~contexts/TodosContext/reducer';
 
+import { useDispatch } from '../../context';
+import { actionCreators } from '../../context/reducer';
 import { FIELDS } from '../../constants';
 import { buildTodo } from '../../utils';
 
