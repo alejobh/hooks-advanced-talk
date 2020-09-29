@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import clsx from 'clsx';
 import i18next from 'i18next';
 
@@ -14,7 +14,7 @@ interface Props {
   placeholder?: string;
   confirmable?: boolean;
   name: string;
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+  onChange?: (event: FormEvent<HTMLInputElement>) => void;
   type?: string;
   // Typed from react-hook-form
   inputRef: (instance: HTMLInputElement | null) => void;

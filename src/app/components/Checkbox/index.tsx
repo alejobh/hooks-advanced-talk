@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 
 import { ReactComponent as CheckboxSvg } from './assets/checkbox.svg';
 import styles from './styles.module.scss';
 
 interface Props {
   name: string;
-  onChange?: (event: React.FormEvent<HTMLInputElement>) => void;
+  onChange?: (event: FormEvent<HTMLInputElement>) => void;
   value: boolean;
   className?: string;
 }
