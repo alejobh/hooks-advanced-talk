@@ -10,7 +10,6 @@ import { buildTodo } from '../../utils';
 
 function NewTodo() {
   const { register, handleSubmit, errors, reset } = useForm({
-    mode: 'all',
     defaultValues: { [FIELDS.newTodo]: '' },
     shouldFocusError: true
   });
