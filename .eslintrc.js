@@ -17,7 +17,7 @@ module.exports = {
           '~services': './src/services',
           '~utils': './src/utils',
           '~app': './src/app',
-          '~assets': './src/assets',
+          '~assets': './src/app/assets',
           '~hooks': './src/app/hooks',
           '~contexts': './src/app/contexts'
         }

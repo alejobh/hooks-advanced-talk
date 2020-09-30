@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-
-import { SquareCoords } from '~utils/types';
+import React, { useState, useEffect, MouseEvent } from 'react';
 
 import { printCoords, initial } from '../../utils';
 
 function Square() {
-  const [square1, setSquare1] = useState<{
-    previous: SquareCoords;
-    current: SquareCoords;
-  }>(initial);
+  const [square1, setSquare1] = useState(initial);
   const [square2, setSquare2] = useState(initial.current);
   const [square1Qty, setSquare1Qty] = useState(0);
   const [square2Qty, setSquare2Qty] = useState(0);
 
-  const handleSetCoords1 = (evt: React.MouseEvent) => {
+  const handleSetCoords1 = (evt: MouseEvent) => {
     evt.persist();
     setSquare1(prev => {
       setSquare1Qty(prevS => prevS + 1);
@@ -24,7 +19,7 @@ function Square() {
     });
   };
 
-  const handleSetCoords2 = (evt: React.MouseEvent) => {
+  const handleSetCoords2 = (evt: MouseEvent) => {
     evt.persist();
     // Multiple calls
     setSquare2({ x: 0, y: 0 });
@@ -32,7 +27,7 @@ function Square() {
     setSquare2({ x: evt.nativeEvent.offsetX, y: evt.nativeEvent.offsetY });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (square2.x && square2.y) {
       setSquare2Qty(prev => prev + 1);
     }

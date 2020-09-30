@@ -1,0 +1,18 @@
+@import 'variables/colors';
+
+.text {
+  display: flex;
+  font-size: 16px;
+  flex-wrap: wrap;
+  line-height: 18px;
+  width: 300px;
+
+  &.done {
+    text-decoration: line-through;
+  }
+}
+
+.delete-button {
+  background-color: $red;
+  color: $white;
+}

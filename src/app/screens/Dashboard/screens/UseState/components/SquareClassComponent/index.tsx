@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEvent } from 'react';
 
 import { SquareCoords } from '~utils/types';
 
@@ -23,7 +23,7 @@ class SquareClassComponent extends Component<object, State> {
     };
   }
 
-  handleSetSquare1 = (evt: React.MouseEvent) => {
+  handleSetSquare1 = (evt: MouseEvent) => {
     evt.persist();
     this.setState(prev => ({
       square1Qty: prev.square1Qty + 1,
@@ -34,7 +34,7 @@ class SquareClassComponent extends Component<object, State> {
     }));
   };
 
-  handleSetSquare2 = (evt: React.MouseEvent) => {
+  handleSetSquare2 = (evt: MouseEvent) => {
     evt.persist();
     // Multiple calls
     this.setState({ square2: { x: 0, y: 0 } });

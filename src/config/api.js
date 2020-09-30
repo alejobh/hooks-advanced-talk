@@ -19,6 +19,15 @@ const api = create({
   timeout: 15000
 });
 
+export const createApi = (apiUrl) => create({
+  /*
+   * TODO Add this if you need it
+   * baseURL: process.env.API_BASE_URL,
+   */
+  baseURL: apiUrl,
+  timeout: 15000
+});
+
 // eslint-disable-next-line no-unused-vars, prettier/prettier, @typescript-eslint/no-unused-vars
 export const apiSetup = dispatch => {
   api.addMonitor(response => {
