@@ -15,6 +15,7 @@ function Home() {
         <ExampleLink path={paths.useState} />
         <ExampleLink path={paths.useLayoutEffect} />
         <ExampleLink path={paths.useRef} />
+        <ExampleLink path={paths.useCallbackMemo} />
         <ExampleLink path={paths.useWindowSize} />
         <ExampleLink path={paths.todo} />
         <ExampleLink path={paths.useRequest} />

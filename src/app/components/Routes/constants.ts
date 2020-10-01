@@ -11,6 +11,7 @@ const UseRequestExample = lazy(() => import('~screens/Dashboard/screens/UseReque
 const ReactQueryExample = lazy(() => import('~screens/Dashboard/screens/ReactQueryExample'));
 const TodoList = lazy(() => import('~screens/Dashboard/screens/TodoList'));
 const UseWindowSize = lazy(() => import('~screens/Dashboard/screens/UseWindowSize'));
+const UseCallbackMemo = lazy(() => import('~screens/Dashboard/screens/useCallbackMemo'));
 
 /* When adding routes, add them ABOVE the Home route
  * or it will redirect you to incorrect screens */
@@ -35,6 +36,14 @@ export const ROUTES = [
     exact: true,
     path: PATHS.useRequest.route,
     component: UseRequestExample,
+    title: i18next.t('Routes:homeTitle'),
+    description: i18next.t('Routes:homeDescription'),
+    redirectTo: ''
+  },
+  {
+    exact: true,
+    path: PATHS.useCallbackMemo.route,
+    component: UseCallbackMemo,
     title: i18next.t('Routes:homeTitle'),
     description: i18next.t('Routes:homeDescription'),
     redirectTo: ''
