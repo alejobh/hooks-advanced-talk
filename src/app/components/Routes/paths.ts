@@ -5,7 +5,7 @@ export default {
   useLayoutEffect: { route: '/use-layout-effect', name: 'useLayoutEffect' },
   useCallbackMemo: { route: '/use-callback-use-memo', name: 'useCallback - useMemo' },
   useWindowSize: { route: '/use-window-size', name: 'Custom Hook: useWindowSize' },
-  todo: { route: '/to-do', name: 'Context & Persist: Todo List' },
+  todo: { route: '/to-do', name: 'Context: Todo List' },
   useRequest: { route: '/use-request', name: 'useRequest' },
   reactQuery: { route: '/react-query', name: 'React Query' }
 };
