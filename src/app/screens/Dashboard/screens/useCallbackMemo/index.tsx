@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import meanBy from 'lodash/meanBy';
 
 import GhibliService, { MovieRating, UserProfile } from '~services/GhibliService';
 import ScreenView from '~components/ScreenView';
 
 const INTERVAL = 1000;
-const MAX_RATING = 10;
+// eslint-disable-next-line no-magic-numbers
+const MAX_RATING = Math.floor(3 + Math.random() * 6);
 
 const DEFAULT_USER: UserProfile = {
   name: 'Pablo',
-  movieHistory: Array.from({ length: 10000 }, () => ({
+  movieHistory: Array.from({ length: 10000000 }, () => ({
     title: 'title',
     rating: Math.floor(Math.random() * MAX_RATING)
   }))
 };
 
-const getAverageRating = (movies: MovieRating[]) => {
+function getAverageRating(movies: MovieRating[]) {
   console.log('Calculate average');
-  return meanBy(movies, 'rating').toFixed(2);
-};
+  return (
+    movies.map(movie => movie.rating).reduce((prev, current) => prev + current, 0) / movies.length
+  ).toFixed(2);
+}
 
 function UseCallbackMemo({ user = DEFAULT_USER }: { user: UserProfile }) {
   const [timer, setTimer] = useState(0);
