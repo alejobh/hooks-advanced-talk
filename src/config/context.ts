@@ -24,3 +24,22 @@ export const contextFactory = <State, Action>(initialState: State) => {
 
   return { useSelector, Context, useDispatch };
 };
+
+export const contextFactoryV2 = <State, Action>(initialState: State) => {
+  const StateContext = createContext<State>({ ...initialState });
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, no-empty-function
+  const DispatchContext = createContext<Dispatch<Action>>(() => {});
+
+  const useSelector = <T>(selector: (arg: State) => T) => {
+    const state = useContext(StateContext);
+    return selector(state);
+  };
+
+  const useDispatch = () => {
+    const dispatch = useContext(DispatchContext);
+    return dispatch;
+  };
+
+  return { useSelector, StateContext, DispatchContext, useDispatch };
+};
