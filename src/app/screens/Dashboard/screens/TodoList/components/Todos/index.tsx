@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 
 function Todos() {
   const todos = useSelector(state => state.todos);
+  console.count('Render Todos');
 
   return (
     <div className={`column ${styles.container}`}>
