@@ -16,24 +16,15 @@ function UseRequestExample() {
     setLimit(prev => prev + LIMIT_INCREMENTAL);
   };
 
-  const limitHasChanged = limit !== DEFAULT_LIMIT;
-
   // Remove useCallback to see infinite loop
   const scrollWhenFetch = useCallback(() => {
     scrollToBottom();
   }, []);
 
-  const { data, loading, fetchMore, thereIsMoreData } = useMoviesUseRequest({
+  const { data, loading, thereIsMoreData } = useMoviesUseRequest({
     limit,
     withPostFetch: scrollWhenFetch
   });
-
-  // Comment this useEffect, and put limit on dependencies array on useMoviesUseRequest (useRequest) to see magic
-  useEffect(() => {
-    if (limitHasChanged) {
-      fetchMore(limit);
-    }
-  }, [fetchMore, limit, limitHasChanged]);
 
   return (
     <ScreenView title="useRequest example" smallScreen={false}>

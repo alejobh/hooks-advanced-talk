@@ -14,7 +14,7 @@ export const useMoviesUseRequest = ({ limit, withPostFetch }: Args) => {
       payload: limit,
       withPostFetch
     },
-    [withPostFetch]
+    [withPostFetch, limit]
   );
 
   const thereIsMoreData = data?.length ? data.length >= limit : true;
