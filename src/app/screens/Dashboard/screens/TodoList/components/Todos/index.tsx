@@ -7,11 +7,16 @@ import styles from './styles.module.scss';
 
 function Todos() {
   const todos = useSelector(state => state.todos);
+  console.count('Render Todos');
 
   return (
     <div className={`column ${styles.container}`}>
       <h2 className="m-bottom-2">My Todos</h2>
-      {todos.length ? todos.map(todo => <TodoItem key={todo.id} todo={todo} />) : <p>You dont have todos</p>}
+      {todos.length ? (
+        todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
+      ) : (
+        <p>You don&apos;t have todos</p>
+      )}
     </div>
   );
 }

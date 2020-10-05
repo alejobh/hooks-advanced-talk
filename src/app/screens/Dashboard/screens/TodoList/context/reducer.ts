@@ -14,7 +14,8 @@ export const INITIAL_STATE = {
 enum ActionTypes {
   ADD_TODO = 'ADD_TODO',
   DELETE_TODO = 'DELETE_TODO',
-  TOGGLE_TODO_STATUS = 'TOGGLE_TODO_STATUS'
+  TOGGLE_TODO_STATUS = 'TOGGLE_TODO_STATUS',
+  DELETE_ALL = 'DELETE_ALL'
 }
 
 interface AddTodo {
@@ -32,12 +33,17 @@ interface ToggleTodoStatus {
   payload: number;
 }
 
-export type Action = AddTodo | DeleteTodo | ToggleTodoStatus;
+interface DeleteAll {
+  type: ActionTypes.DELETE_ALL;
+}
+
+export type Action = AddTodo | DeleteTodo | ToggleTodoStatus | DeleteAll;
 
 export const actionCreators = {
   addTodo: (todo: Todo): AddTodo => ({ type: ActionTypes.ADD_TODO, payload: todo }),
   deleteTodo: (id: number): DeleteTodo => ({ type: ActionTypes.DELETE_TODO, payload: id }),
-  toggleTodoStatus: (id: number): ToggleTodoStatus => ({ type: ActionTypes.TOGGLE_TODO_STATUS, payload: id })
+  toggleTodoStatus: (id: number): ToggleTodoStatus => ({ type: ActionTypes.TOGGLE_TODO_STATUS, payload: id }),
+  deleteAll: (): DeleteAll => ({ type: ActionTypes.DELETE_ALL })
 };
 
 export const reducer = (state: TodosState, action: Action): TodosState => {
@@ -47,6 +53,9 @@ export const reducer = (state: TodosState, action: Action): TodosState => {
     }
     case ActionTypes.DELETE_TODO: {
       return { ...state, todos: state.todos.filter(todo => todo.id !== action.payload) };
+    }
+    case ActionTypes.DELETE_ALL: {
+      return { ...state, todos: [] };
     }
     case ActionTypes.TOGGLE_TODO_STATUS: {
       return {
