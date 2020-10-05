@@ -13,6 +13,7 @@ function NewTodo() {
     defaultValues: { [FIELDS.newTodo]: '' },
     shouldFocusError: true
   });
+
   const dispatch = useDispatch();
 
   const onSubmit = (data: { [key: string]: string }) => {
