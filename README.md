@@ -2,7 +2,7 @@ This project was bootstrapped with [REACT-BOOTSTRAP-WOLOX](https://github.com/Wo
 
 ## Summary
 
-This is a project that contains various hooks examples, made for a Wolox's talk *Advanced React Hooks with typescript*
+This is a project that contains various hooks examples, made for  Wolox's talk: *Advanced React Hooks with typescript*
 
 ## Live Demo
 
@@ -10,7 +10,18 @@ This is a project that contains various hooks examples, made for a Wolox's talk 
 
 ## Run the project
 
-First you have to install the required packages:
+Clone this repository
+
+#### HTTPS
+
+`git clone https://github.com/alejobh/hooks-advanced-talk.git`
+
+
+#### SSH
+
+`git clone git@github.com:alejobh/hooks-advanced-talk.git`
+
+Then you have to install the required packages:
 
 `npm install`
 
