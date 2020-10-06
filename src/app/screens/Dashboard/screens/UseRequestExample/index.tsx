@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import ScreenView from '~components/ScreenView';
 import Loading from '~components/Spinner/components/loading';
