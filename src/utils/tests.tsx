@@ -2,8 +2,8 @@ import React, { ReactNode, useReducer } from 'react';
 import { mount } from 'enzyme';
 import { Switch, BrowserRouter as Router } from 'react-router-dom';
 
-import { Context } from '~app/contexts/GlobalContext';
-import { reducer, INITIAL_STATE } from '~contexts/GlobalContext/reducer';
+import { Context } from '~contexts/ExamplesContext';
+import { reducer, INITIAL_STATE } from '~contexts/ExamplesContext/reducer';
 
 type Hook = () => any;
 

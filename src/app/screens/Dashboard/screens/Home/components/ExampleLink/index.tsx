@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
-import { useSelector } from '~app/contexts/GlobalContext';
+import { useSelector } from '~contexts/ExamplesContext';
 
 import styles from './styles.module.scss';
 
