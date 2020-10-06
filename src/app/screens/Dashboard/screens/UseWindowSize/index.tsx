@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { getSize } from '~app/hooks/useWindowSize';
 import ScreenView from '~components/ScreenView';
-import useWindowSize from '~hooks/useWindowSize';
 
 function UseWindowSize() {
-  const windowSize = useWindowSize();
+  const [windowSize, setWindowSize] = useState(getSize(window.innerWidth));
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize(getSize(window.innerWidth));
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  });
+
   return (
     <ScreenView title="useWindowSize example">
       {/* Next line is not strongly typed, could be extracted on a util function when needed  */}
