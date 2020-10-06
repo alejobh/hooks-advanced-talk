@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useSelector, useDispatch } from '~app/contexts/GlobalContext';
-import { actionCreators } from '~app/contexts/GlobalContext/reducer';
+import { useSelector, useDispatch } from '~app/contexts/ExamplesContext';
+import { actionCreators } from '~app/contexts/ExamplesContext/reducer';
 
 function UnderstoodButton() {
   const location = useLocation();
