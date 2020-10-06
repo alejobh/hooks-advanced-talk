@@ -2,8 +2,8 @@ import React from 'react';
 
 import '../scss/application.scss';
 
-import { reducer, INITIAL_STATE, Action, ExamplesState } from '~app/contexts/ExamplesContext/reducer';
-import { Context } from '~app/contexts/ExamplesContext';
+import { reducer, INITIAL_STATE, Action, ExamplesState } from '~contexts/ExamplesContext/reducer';
+import { Context } from '~contexts/ExamplesContext';
 import withProvider from '~components/ProviderWrapper';
 
 import Routes from './components/Routes';
