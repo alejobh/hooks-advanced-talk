@@ -4,6 +4,8 @@ This project was bootstrapped with [REACT-BOOTSTRAP-WOLOX](https://github.com/Wo
 
 This is a project that contains various hooks examples, made for  Wolox's talk: *Advanced React Hooks with typescript*
 
+Credits to: @alejobh @pabloferro
+
 ## Live Demo
 
 [Click here to view the demo on now.sh](https://hooks-advanced-talk.vercel.app)
@@ -15,7 +17,6 @@ Clone this repository
 #### HTTPS
 
 `git clone https://github.com/alejobh/hooks-advanced-talk.git`
-
 
 #### SSH
 
